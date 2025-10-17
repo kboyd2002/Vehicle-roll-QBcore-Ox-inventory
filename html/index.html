@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Prize Spinner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="spinContainer" class="hidden">
+        <div class="spinner-wrapper">
+            <div class="title">VEHICLE PRIZE SPIN</div>
+            
+            <!-- Carousel container -->
+            <div class="carousel-container">
+                <!-- Pointer indicator -->
+                <div class="pointer"></div>
+                
+                <!-- Spinning carousel -->
+                <div id="carousel" class="carousel">
+                    <!-- Vehicle cards will be dynamically added here -->
+                </div>
+            </div>
+            
+            <!-- Win overlay -->
+            <div id="winOverlay" class="win-overlay hidden">
+                <div class="win-content">
+                    <div class="win-title">CONGRATULATIONS!</div>
+                    <div class="win-vehicle-name" id="winVehicleName"></div>
+                    <div class="win-subtitle">Check your garage!</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

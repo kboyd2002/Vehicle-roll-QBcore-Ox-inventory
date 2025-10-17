@@ -1,0 +1,210 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#spinContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.spinner-wrapper {
+    width: 90%;
+    max-width: 1200px;
+    position: relative;
+}
+
+.title {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    letter-spacing: 3px;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 100%);
+    border-radius: 15px;
+}
+
+.pointer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 30px solid #FFD700;
+    z-index: 100;
+    filter: drop-shadow(0 0 10px #FFD700);
+    animation: pointerPulse 1s infinite;
+}
+
+@keyframes pointerPulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.1); }
+}
+
+.carousel {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: none;
+}
+
+.vehicle-card {
+    min-width: 200px;
+    height: 220px;
+    margin: 0 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    border: 3px solid;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    transition: transform 0.2s;
+}
+
+.vehicle-card:hover {
+    transform: scale(1.05);
+}
+
+.vehicle-image {
+    width: 150px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.5));
+}
+
+.vehicle-name {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+.vehicle-tier {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    margin-top: 5px;
+    padding: 3px 10px;
+    border-radius: 5px;
+    background: rgba(0,0,0,0.5);
+}
+
+/* Win Overlay */
+.win-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+    animation: fadeIn 0.5s ease;
+}
+
+.win-content {
+    text-align: center;
+    animation: scaleIn 0.5s ease;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.win-title {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #FFD700;
+    text-shadow: 0 0 30px #FFD700;
+    margin-bottom: 1rem;
+    animation: glow 1.5s infinite;
+}
+
+@keyframes glow {
+    0%, 100% { text-shadow: 0 0 20px #FFD700; }
+    50% { text-shadow: 0 0 40px #FFD700, 0 0 60px #FFD700; }
+}
+
+.win-vehicle-name {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.win-subtitle {
+    font-size: 1.5rem;
+    color: #aaa;
+}
+
+/* Tier-specific colors */
+.tier-legendary {
+    border-color: #FFD700;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.tier-epic {
+    border-color: #9D4EDD;
+    box-shadow: 0 0 20px rgba(157, 78, 221, 0.5);
+}
+
+.tier-rare {
+    border-color: #3A86FF;
+    box-shadow: 0 0 20px rgba(58, 134, 255, 0.5);
+}
+
+.tier-common {
+    border-color: #8D99AE;
+    box-shadow: 0 0 20px rgba(141, 153, 174, 0.3);
+}
